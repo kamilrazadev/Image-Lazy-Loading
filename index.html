@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+        }
+        img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            animation: blury 2s ease-in-out;
+            opacity: 0;
+            transition: opacity 400ms ease-in-out;
+        }
+        .img-container {
+            animation: pulse 2.5s infinite;
+            /* background: rgba(0, 0, 0, 0.1); */
+        }
+
+        @keyframes blury {
+            0% {
+                filter: blur(10px);
+            }     
+            100% {
+                filter: blur(0);
+            }        
+        }
+
+        @keyframes pulse {
+            0% {
+                background-color: rgba(0, 0, 0, 0.2);
+            }            
+            50% {
+                background-color: rgba(255, 255, 255, 0.1);
+            }       
+            100% {
+                background-color: rgba(0, 0, 0, 0.2);
+            }       
+        }
+    </style>
+
+</head>
+<body style="margin: 0;">
+    <p>Hi</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel maxime corrupti dolorem beatae rerum aliquam nostrum dolore architecto ut? Error perferendis omnis earum quae ea sint repellat vero saepe molestias.
+    Repellat, aspernatur? Dolores quae aliquid molestias dolorem omnis, maiores nemo. Ex autem alias consectetur nisi, in quidem accusantium est odio voluptatem quae quaerat iure deleniti dolorum qui, ullam repellendus modi.
+    Repellat ipsam, soluta quia ea autem vel non dicta, eius optio incidunt officia eligendi corporis sed temporibus a facilis. Reprehenderit ipsa at consectetur dolorum nulla incidunt exercitationem quas nemo maiores!
+    Ad pariatur molestias deserunt sunt, odit voluptatibus reprehenderit, veritatis, nemo ullam numquam placeat repellendus enim eveniet id reiciendis. Delectus debitis perspiciatis alias nobis distinctio voluptates velit veniam voluptas vel quibusdam!
+    Libero ipsum, quis optio iure odio illum sed ipsa qui tempore saepe excepturi ullam distinctio ducimus quam adipisci. Accusantium saepe totam omnis ipsam, maxime ullam illo! Voluptas aperiam temporibus voluptatibus.
+    Id tempora harum aut esse, eligendi excepturi sunt explicabo eveniet illum cupiditate quasi quam quae, mollitia suscipit dignissimos fugit ea nemo tenetur expedita possimus deleniti. Cumque deleniti incidunt fuga eveniet.
+    Unde eveniet veniam magnam est, obcaecati mollitia quibusdam provident! Amet hic repellendus, perferendis iste fugiat rerum veniam aliquid, nihil nostrum possimus distinctio officia adipisci nesciunt laborum alias, unde dignissimos ipsum.
+    Corrupti perspiciatis rem, ullam, reiciendis ab autem totam ipsa tempore, delectus minus alias. Quam minima voluptatibus saepe quidem possimus, molestiae molestias ipsum suscipit aperiam, impedit dicta consequuntur, repudiandae ullam sit.
+    Sunt dolor asperiores, pariatur itaque consectetur nisi totam placeat alias officia dicta porro odio dolorem sint esse quae culpa voluptatem eius facilis excepturi deleniti nostrum aut. Aspernatur esse consequuntur libero?
+    Aspernatur blanditiis inventore velit ex ratione ipsam molestiae aut architecto? Ducimus, perspiciatis. Quaerat dignissimos obcaecati incidunt perferendis. Quas, ducimus. Aperiam voluptatum itaque eum deserunt, odit doloremque dolore quis ipsam laboriosam?</p>
+
+    <div class="grid">
+        <div class="img-container">
+            <img src="./pexels-baskin-creative-studios-1766838.jpg" alt="" >
+        </div>
+        <div class="img-container">
+            <img src="./pexels-david-besh-884788.jpg" alt="" >
+        </div>
+        <div class="img-container">
+            <img src="./pexels-pixabay-36478.jpg" alt="" >
+        </div>
+        <div class="img-container">
+            <img src="./pexels-pixabay-33109.jpg" alt="" >
+        </div>
+        <div class="img-container">
+            <img src="./pexels-pixabay-259915.jpg" alt="" >
+        </div>
+        <div class="img-container">
+            <img src="./pexels-pixabay-257360.jpg" alt="" >
+        </div>
+
+    </div>
+
+    
+    <script>
+        const images = document.querySelectorAll('img')
+        images.forEach(image => {
+            console.log("forEach run")
+            function loaded () {
+                console.log("loaded run")
+                image.style.opacity = "1"
+            }
+
+            if(image.complete) {
+                console.log("condition run")
+                loaded()
+            } else {
+                image.addEventListener("load", loaded)
+            }
+        });
+    </script>
+
+</body>
+</html>
